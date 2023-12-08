@@ -64,3 +64,28 @@ class recursion:
         else:
             print(s[i-1], end="")
             recursion.reverse(s, i - 1)
+
+    @staticmethod
+    def search (a, first: int, size: int, target, i: int, found: bool):
+        """Searches for a desired element in a list of elements
+        starting at a[first]
+
+        Args:
+            a: the list to search
+            first (int): the list index at which the search will start
+            size (int): the number of elements to search
+            target: the element to search for
+            i: the counter variable used to iterate through list
+            found: the variable used to denote if the target has been found
+
+        Returns:
+            int: if the target appears in the list, index the element
+            that contains the target, else -1
+        """        
+        if i >= size or (i + first) >= len(a):
+            return f"{target} not found"
+
+        if a[i + first] == target:
+            found = True
+            return f"Target found at index... {i + first}"
+        return recursion.search(a, first, size, target, i + 1, found)
